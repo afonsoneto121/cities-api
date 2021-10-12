@@ -41,8 +41,8 @@ public class City {
     private Point location;
 */
     @Column(name = "latitude")
-    private String lat;
+    private Double lat;
 
     @Column(name = "longitude")
-    private String lon;
+    private Double lon;
 }
