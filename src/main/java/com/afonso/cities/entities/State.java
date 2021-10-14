@@ -34,12 +34,12 @@ public class State {
 
     private Integer ibge;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pais", referencedColumnName = "id")
     private Country country;
 
     @Type(type = "jsonb")
+
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "ddd", columnDefinition = "jsonb")
     private List<Integer> ddd;

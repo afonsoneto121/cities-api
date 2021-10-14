@@ -24,4 +24,8 @@ public class CountryService {
         return repository.findById(id)
                 .orElseThrow( () -> new NotFoundException("Country not found"));
     }
+
+    public Page<Country> findByName(String name, Pageable pageable) {
+        return repository.findAllByNameOrPortugueseName(name, name, pageable);
+    }
 }

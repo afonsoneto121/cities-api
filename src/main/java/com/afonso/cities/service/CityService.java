@@ -3,6 +3,8 @@ package com.afonso.cities.service;
 import com.afonso.cities.entities.City;
 import com.afonso.cities.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -22,5 +24,14 @@ public class CityService {
         Double lon2 = cities.get(1).getLon();
 
         return repository.calculedistance(lat1,lon1, lat2,lon2);
+    }
+
+
+    public Page<City> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    public Page<City> findByName(String name, Pageable pageable) {
+        return repository.findAllByNameContaining(name,pageable);
     }
 }
