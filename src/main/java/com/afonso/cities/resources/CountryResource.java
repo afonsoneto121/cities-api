@@ -3,6 +3,7 @@ package com.afonso.cities.resources;
 import com.afonso.cities.entities.Country;
 import com.afonso.cities.exception.NotFoundException;
 import com.afonso.cities.repository.CountryRepository;
+import com.afonso.cities.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,16 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CountryResource {
 
-    private final CountryRepository countryRepository;
 
+    private final CountryService service;
     @GetMapping
     public Page<Country> countries(Pageable page) {
-        return countryRepository.findAll(page);
+        return service.findAll(page);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity getById(@PathVariable Long id) throws NotFoundException {
-        return ResponseEntity.ok().body(countryRepository.findById(id)
-                .orElseThrow( () -> new NotFoundException("Country not found")));
+        return ResponseEntity.ok().body(service.findById(id));
     }
 }
