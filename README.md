@@ -1,8 +1,8 @@
-#Cities API
+# Cities API
 
 API para consultar cidades, uma versão de teste está disponível [aqui](https://cities-api-live.herokuapp.com/)
 
-##Pré-Requisitos
+## Pré-Requisitos
 
 * Linux
 * Git
@@ -10,7 +10,7 @@ API para consultar cidades, uma versão de teste está disponível [aqui](https:
 * Docker
 * Postgres
 
-###Banco de Dados
+### Banco de Dados
 
 * [Dados](https://github.com/chinnonsantos/sql-paises-estados-cidades/tree/master/PostgreSQL)
 
